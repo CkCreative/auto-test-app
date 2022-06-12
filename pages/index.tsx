@@ -21,6 +21,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 function Home({ cars }: { cars: CarList }) {
+  console.log(cars);
   return (
     <Layout>
       <div className="">
