@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import slides from "./slides.json";
 
 export default function Slider() {
+  const [current, setCurrent] = useState(0);
   const [options, setOptions] = useState<typeof slides | undefined>(slides);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function Slider() {
     <>
       <div className="slider">
         <div className="slider-items">
-          <div id="counter">{options[0].title}</div>
+          <div id="counter">{options && options[0].title}</div>
         </div>
         <div className="slider-controls"></div>
       </div>
