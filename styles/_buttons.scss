@@ -1,0 +1,20 @@
+@import "variables";
+
+button {
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    box-shadow: $shadow;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    color: $white;
+}
+
+.btn-accent {
+    background-color: $accent-color;
+    color: $white;
+}

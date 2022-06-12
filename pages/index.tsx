@@ -1,6 +1,8 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import Layout from "../components/layout";
+import Slider from "../components/Slider";
+import TopBar from "../components/TopBar";
 import { CarList } from "../types/carList";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -20,14 +22,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 function Home({ cars }: { cars: CarList }) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Auto test app</title>
-        <meta name="description" content="Auto test app" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout>
+      <div className="">
+        <Head>
+          <title>Auto test app</title>
+          <meta name="description" content="Auto test app" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className={styles.main}>
+        <Slider></Slider>
         <ul>
           {cars.result.map((car) => {
             return (
@@ -37,10 +40,8 @@ function Home({ cars }: { cars: CarList }) {
             );
           })}
         </ul>
-      </main>
-
-      <footer className={styles.footer}></footer>
-    </div>
+      </div>
+    </Layout>
   );
 }
 

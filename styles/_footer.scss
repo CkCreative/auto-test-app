@@ -1,0 +1,15 @@
+@import "variables";
+.footer {
+    display: flex;
+    flex-direction: column;
+    .bottom-bar {
+        color: $white;
+        height: 55px;
+        background-color: $primary-color;
+    }
+
+    .bottom-nav {
+        min-height: 350px;
+        background-color: $gray-dark;
+    }
+}
