@@ -12,7 +12,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.id;
 
   const res = await fetch(`${baseUrl}/inventory/car/${id}`);
-
   const detail: CarDetail = await res.json();
 
   const media = await fetch(`${baseUrl}/inventory/car_media?carId=${id}`);

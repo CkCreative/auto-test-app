@@ -10,6 +10,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   const res = await fetch(`${baseUrl}/inventory/car/search`);
   console.log(process.env);
+  console.log(res);
 
   const cars: CarList = await res.json();
 
