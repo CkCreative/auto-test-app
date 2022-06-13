@@ -2,10 +2,11 @@
 import type { NextPage, GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
+import Link from "next/link";
+
 import Layout from "../components/layout";
 import Slider from "../components/Slider";
 import { CarList } from "../types/carList";
-import Link from "next/link";
 import { TopMakes } from "../types/topMakes";
 
 export const getServerSideProps: GetServerSideProps = async () => {

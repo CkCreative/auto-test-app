@@ -1,21 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from "next";
-import Image from "next/image";
 import { useEffect, useState } from "react";
+
 import Layout from "../../components/layout";
 import { CarDetail } from "../../types/carDetail";
 import { CarMedia, CarMediaList } from "../../types/carMedia";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const baseUrl = process.env.API_BASE_URL;
-
   const id = params?.id;
 
+  // get the details of the current item
   const res = await fetch(`${baseUrl}/inventory/car/${id}`);
   const detail: CarDetail = await res.json();
 
+  // get media
   const media = await fetch(`${baseUrl}/inventory/car_media?carId=${id}`);
   const carMedia: CarMedia = await media.json();
+
   return {
     props: {
       detail,
@@ -32,11 +34,13 @@ function Detail({
   carMedia: CarMedia;
 }) {
   const [currenMedia, setCurrentMedia] = useState<CarMediaList>();
+
+  // show clicked image on large
   const showImage = (e: React.MouseEvent, media: CarMediaList) => {
     setCurrentMedia(() => media);
-    console.log(media);
   };
 
+  //set initial media to display large
   useEffect(() => {
     if (!carMedia) return;
     setCurrentMedia(() => carMedia.carMediaList[0]);

@@ -4,36 +4,18 @@ import slides from "./slides.json";
 
 export default function Slider() {
   const [slider, setSlider] = useState(0);
-  const [options, setOptions] = useState<typeof slides | undefined>(slides);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!options) return;
-
-      setOptions((state) => {
-        if (!state) return state;
-
-        const items = [...state];
-        const end = items.pop();
-
-        if (!end) return state;
-
-        return [end, ...items];
-      });
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  useEffect(() => {
+    // get all the sliders
     let sliders = document.getElementsByClassName("slider-item");
     const interval = setInterval(() => {
       let items = sliders.length - 1;
 
       while (items >= 0) {
+        // guard to stop going to the next slider when mouse is over the slider
         if (slider === 1) return;
+
+        // when the sliders are all displayed, rotate to the end
         if (items == 0) {
           let last = sliders.length - 1;
           sliders[items].classList.remove("current");
@@ -42,6 +24,8 @@ export default function Slider() {
           sliders[last]?.classList.add("current");
           return;
         }
+
+        // move to the next slider
         if (sliders[items].classList.contains("current")) {
           sliders[items].classList.remove("current");
           sliders[items].classList.add("previous");
@@ -58,9 +42,12 @@ export default function Slider() {
     };
   }, [slider]);
 
+  // stop slider when mouse is brought over it, set 1 flag
   const stopSlider = (e: React.MouseEvent) => {
     setSlider(() => 1);
   };
+
+  // resume slider when mouse goes out of the sider area, reset flag to 0
   const startSlider = (e: React.MouseEvent) => {
     setSlider(() => 0);
   };
