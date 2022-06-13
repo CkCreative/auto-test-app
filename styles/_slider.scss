@@ -1,0 +1,63 @@
+@import "variables";
+
+.slider {
+    height: 500px;
+    overflow: hidden;
+
+    .slider-items {
+        position: relative;
+        .previous {
+            top: 0;
+            left: -100%;
+            animation-name: slideoff;
+            animation-duration: 1s;
+        }
+        .current {
+            top: 0;
+            left: 0;
+            animation-name: slide;
+            animation-duration: 1s;
+        }
+        .slider-item {
+            position: absolute;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            background-position: center;
+            background-size: cover;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: baseline;
+                padding: 2rem;
+                width: 80%;
+                height: 60%;
+                background-color: rgba(228, 226, 226, 0.692);
+        
+                h2 {
+                    margin: 0;
+                }
+                .large-text {
+                    font-size: xx-large;
+                    margin-top: 0;
+                    span {
+                        color: $accent-color;
+                    }
+                }
+            }
+        }
+        @keyframes slide {
+            from {left: 100%;}
+            to {left: 0;}
+          }
+        @keyframes slideoff {
+            from {left: 0;}
+            to {left: -100%;}
+          }
+    }
+}

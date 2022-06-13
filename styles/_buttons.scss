@@ -7,11 +7,17 @@ button {
     cursor: pointer;
     box-shadow: $shadow;
     padding: 10px;
+
+    &:hover {
+        background-color: $gray-dark;
+    }
 }
 
 .btn-primary {
     background-color: $primary-color;
     color: $white;
+    text-transform: uppercase;
+    font-weight: bolder;
 }
 
 .btn-accent {

@@ -1,28 +1,59 @@
+@import "variables";
+
 .detail-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .content {
         display: flex;
         flex-direction: row;
-        padding: 0 5em;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @media screen and (max-width: 880px) {
+            width: 90%;
+        }
     }
 
     .text {
-        flex: 1;
+        width: 50%;
+        padding-bottom: 2rem;
+        @media screen and (max-width: 880px) {
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .value {
+            color: $accent-color;
+        }
     }
 
     .media {
-        height: 600px;
-        flex: 1;
+        height: auto;
+        width: 50%;
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: hidden;
+       
+        @media screen and (max-width: 800px) {
+            width: 100%;
+            justify-content: center;
+        }
+        
 
         .current-image {
             height: 400px;
-            padding-right: 2rem;
+            padding: 0 2rem;
+            @media screen and (max-width: 800px) {
+                padding: 0;
+                img {
+                    object-fit: contain;
+                    width: 100%;
+                }
+            }
             display: flex;
             align-items: flex-end;
 
@@ -36,20 +67,26 @@
             }
         }
 
-        .thumbnails {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+        .thumbnail-container {
+            overflow: auto;
+            width: 400px;
 
-            img {
-                width: 50px;
-                height: 50px;
-                cursor: pointer;
-                margin: 0.2rem;
+            .thumbnails {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 400px;
+    
+                img {
+                    width: 80px;
+                    height: 80px;
+                    cursor: pointer;
+                    margin: 0.2rem;
+                }
             }
         }
+
     }
 
 }
