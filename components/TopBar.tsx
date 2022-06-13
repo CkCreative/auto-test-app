@@ -58,8 +58,8 @@ export default function TopBar() {
 
         <nav>
           <div className="drop-down">
-            <select name="menu-items" id="select">
-              <option value="" disabled selected>
+            <select defaultValue={"default"} name="menu-items" id="select">
+              <option value="default" disabled>
                 Choose category
               </option>
               <option value="volvo">One</option>

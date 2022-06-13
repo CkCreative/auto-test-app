@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage, GetServerSideProps } from "next";
-import Head from "next/head";
 import React from "react";
 import Link from "next/link";
 
@@ -40,12 +39,6 @@ function Home({ cars, topMakes }: { cars: CarList; topMakes: TopMakes }) {
   return (
     <Layout>
       <div className="">
-        <Head>
-          <title>Auto test app</title>
-          <meta name="description" content="Auto test app" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
         <Slider></Slider>
         <div className="home">
           <div className="product-list">

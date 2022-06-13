@@ -1,6 +1,13 @@
 
 # Next.js Ecommerce Test
 
+Demo hosted on Heroku at this link: [https://automartapptest.herokuapp.com/](https://automartapptest.herokuapp.com/)
+
+## Running
+
+- `npm install`
+- `npm run dev`
+
 ## Design Decisions
 
 - HTML `img` element used in place of `next/image` because the media are hosted in different websites not known beforehand yet next.js requires image host to be known for all the src values in `Image` components. 

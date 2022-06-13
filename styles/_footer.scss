@@ -24,9 +24,11 @@
             border-radius: 5px;
             overflow: hidden;
             flex-wrap: wrap;
+            margin-bottom: 0;
 
             @media screen and (max-width: 600px) {
                 width: 100%;
+                margin-bottom: 1rem;
             }
 
             .content {
