@@ -11,6 +11,7 @@
         display: flex;
         justify-content: space-around;
         padding: 2rem;
+        flex-wrap: wrap;
 
         
         
@@ -22,6 +23,11 @@
             justify-content: center;
             border-radius: 5px;
             overflow: hidden;
+            flex-wrap: wrap;
+
+            @media screen and (max-width: 600px) {
+                width: 100%;
+            }
 
             .content {
                 width: 60%;
@@ -29,6 +35,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+
+                flex-wrap: wrap;
+
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                }
 
                 .sub-head {
                     color: $accent-color;
@@ -47,9 +59,13 @@
             .media {
                 width: 40%;
                 overflow: hidden;
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                }
 
                 img {
                     height: 100%;
+                    width: 100%;
                     object-fit: contain;
                     object-position: center;
                 }
